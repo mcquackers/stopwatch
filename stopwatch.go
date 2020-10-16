@@ -135,8 +135,7 @@ func (w *Stopwatch) Report() (Report, error) {
 		return Report{}, err
 	}
 
-	numSplits := len(w.keys) - 1
-	splits := make([]Split, numSplits)
+	splits := w.calculateSplits()
 	rpt := Report{
 		Duration: duration,
 		Splits:   splits,
