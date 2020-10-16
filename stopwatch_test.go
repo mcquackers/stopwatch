@@ -341,6 +341,9 @@ func (frs *fullReportSuite) TestFullReport_Success() {
 	assert.NotNil(frs.T(), rpt.Splits)
 	expectedNumberOfSplits := len(frs.w.keys) - 1
 	assert.Equal(frs.T(), expectedNumberOfSplits, len(rpt.Splits))
+
+	expectedSplits := frs.w.calculateSplits()
+	assert.Equal(frs.T(), expectedSplits, rpt.Splits)
 }
 
 func (frs *fullReportSuite) TestReport_Error_NotStarted() {
